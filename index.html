@@ -1,0 +1,69 @@
+# Hassan Golestaneh | حسن گلستانه – Official Personal Website
+
+World-class personal website for **Hassan Golestaneh**, the first Iranian World Fitness Medalist, Mr. Fitness of Iran, and founder of competitive fitness in Iran.
+
+## Features
+
+- **Fully responsive** (mobile, tablet, desktop)
+- **Three languages**: English • فارسی (RTL) • Français
+- **Modern dark premium design** with gold accents
+- **Smooth animations** and professional UI
+- **SEO-ready** meta tags
+- **Zero dependencies** to install (Tailwind via CDN + vanilla JS)
+- Ready for **GitHub Pages** or any static hosting + custom domain
+
+## How to Deploy on GitHub Pages
+
+1. Create a new repository on GitHub (e.g. `hassan-golestaneh` or `username.github.io`)
+2. Upload all files of this folder to the repository
+3. Go to **Settings → Pages**
+4. Source: Deploy from branch `main` / folder `/ (root)`
+5. Your site will be live at `https://username.github.io/repo-name`
+
+### Connect Custom Domain
+
+1. In GitHub Pages settings, add your custom domain (e.g. `hassangolestaneh.com`)
+2. In your domain registrar, add these DNS records:
+   - `A` records pointing to GitHub Pages IPs:
+     - `185.199.108.153`
+     - `185.199.109.153`
+     - `185.199.110.153`
+     - `185.199.111.153`
+   - Or `CNAME` record: `username.github.io`
+3. Enable “Enforce HTTPS” in GitHub Pages settings
+
+## How to Customize
+
+### Replace Photos
+In `index.html` look for the image placeholders (Hero section and Gallery).  
+Replace the inner content of those `<div>`s with real `<img>` tags:
+
+```html
+<img src="assets/your-photo.jpg" alt="Hassan Golestaneh" class="w-full h-full object-cover" />
+```
+
+Create an `assets/` folder and put your high-quality competition photos there.
+
+### Update Contact / Social Links
+Search for Instagram and X links near the bottom of `index.html` and update them if needed.
+
+### Change Colors
+Edit the Tailwind config at the top of `index.html` (gold and dark colors).
+
+## File Structure
+
+```
+hassan-golestaneh-website/
+├── index.html          ← Main website (everything is inside)
+├── README.md
+└── assets/             ← Put your photos here
+```
+
+## Credits
+
+Designed & developed as a high-end personal brand website.  
+Content based on publicly available information about Hassan Golestaneh’s athletic career.
+
+---
+
+© 2026 Hassan Golestaneh. All rights reserved.
