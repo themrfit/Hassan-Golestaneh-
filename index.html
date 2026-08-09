@@ -1,69 +1,720 @@
-# Hassan Golestaneh | حسن گلستانه – Official Personal Website
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Hassan Golestaneh - First Iranian World Fitness Medalist | Mr. Fitness of Iran | World Champion Bodybuilder & Coach" />
+  <meta name="keywords" content="Hassan Golestaneh, حسن گلستانه, Fitness Iran, Bodybuilding, World Champion, Mr Fitness" />
+  <meta name="author" content="Hassan Golestaneh" />
+  <meta property="og:title" content="Hassan Golestaneh | World Fitness Champion" />
+  <meta property="og:description" content="First Iranian World Fitness Medalist • Founder of Fitness in Iran • International Coach & Referee" />
+  <meta property="og:type" content="website" />
+  <title>Hassan Golestaneh | حسن گلستانه</title>
 
-World-class personal website for **Hassan Golestaneh**, the first Iranian World Fitness Medalist, Mr. Fitness of Iran, and founder of competitive fitness in Iran.
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+            },
+            dark: {
+              900: '#0a0a0a',
+              800: '#121212',
+              700: '#1a1a1a',
+              600: '#242424',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['Playfair Display', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
 
-## Features
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <!-- Vazirmatn for Persian -->
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
 
-- **Fully responsive** (mobile, tablet, desktop)
-- **Three languages**: English • فارسی (RTL) • Français
-- **Modern dark premium design** with gold accents
-- **Smooth animations** and professional UI
-- **SEO-ready** meta tags
-- **Zero dependencies** to install (Tailwind via CDN + vanilla JS)
-- Ready for **GitHub Pages** or any static hosting + custom domain
+  <style>
+    :root {
+      --gold: #f59e0b;
+    }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: #0a0a0a;
+      color: #f5f5f5;
+    }
+    [dir="rtl"] body,
+    [dir="rtl"] {
+      font-family: 'Vazirmatn', 'Inter', system-ui, sans-serif;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .gold-border {
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+    .hero-gradient {
+      background: radial-gradient(ellipse at top, rgba(245, 158, 11, 0.08) 0%, transparent 60%);
+    }
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-6px);
+      border-color: rgba(245, 158, 11, 0.6);
+      box-shadow: 0 20px 40px -15px rgba(245, 158, 11, 0.15);
+    }
+    .nav-blur {
+      backdrop-filter: blur(12px);
+      background: rgba(10, 10, 10, 0.85);
+    }
+    .lang-btn.active {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #0a0a0a;
+      font-weight: 600;
+    }
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    /* Animation */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fadeInUp 0.8s ease forwards;
+    }
+  </style>
+</head>
+<body class="antialiased">
 
-## How to Deploy on GitHub Pages
+  <!-- ========== NAVBAR ========== -->
+  <nav class="fixed top-0 left-0 right-0 z-50 nav-blur border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <!-- Logo -->
+        <a href="#home" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center text-dark-900 font-bold text-lg">
+            HG
+          </div>
+          <span class="hidden sm:block font-semibold tracking-wide text-white group-hover:text-gold-400 transition">
+            <span data-i18n="nav.name">Hassan Golestaneh</span>
+          </span>
+        </a>
 
-1. Create a new repository on GitHub (e.g. `hassan-golestaneh` or `username.github.io`)
-2. Upload all files of this folder to the repository
-3. Go to **Settings → Pages**
-4. Source: Deploy from branch `main` / folder `/ (root)`
-5. Your site will be live at `https://username.github.io/repo-name`
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#about" class="text-sm text-gray-300 hover:text-gold-400 transition" data-i18n="nav.about">About</a>
+          <a href="#achievements" class="text-sm text-gray-300 hover:text-gold-400 transition" data-i18n="nav.achievements">Achievements</a>
+          <a href="#career" class="text-sm text-gray-300 hover:text-gold-400 transition" data-i18n="nav.career">Career</a>
+          <a href="#gallery" class="text-sm text-gray-300 hover:text-gold-400 transition" data-i18n="nav.gallery">Gallery</a>
+          <a href="#contact" class="text-sm text-gray-300 hover:text-gold-400 transition" data-i18n="nav.contact">Contact</a>
+        </div>
 
-### Connect Custom Domain
+        <!-- Language Switcher -->
+        <div class="flex items-center gap-1 bg-dark-700 rounded-full p-1">
+          <button onclick="setLanguage('en')" class="lang-btn px-3 py-1.5 rounded-full text-xs font-medium text-gray-300 hover:text-white transition active" data-lang="en">EN</button>
+          <button onclick="setLanguage('fa')" class="lang-btn px-3 py-1.5 rounded-full text-xs font-medium text-gray-300 hover:text-white transition" data-lang="fa">FA</button>
+          <button onclick="setLanguage('fr')" class="lang-btn px-3 py-1.5 rounded-full text-xs font-medium text-gray-300 hover:text-white transition" data-lang="fr">FR</button>
+        </div>
+      </div>
+    </div>
+  </nav>
 
-1. In GitHub Pages settings, add your custom domain (e.g. `hassangolestaneh.com`)
-2. In your domain registrar, add these DNS records:
-   - `A` records pointing to GitHub Pages IPs:
-     - `185.199.108.153`
-     - `185.199.109.153`
-     - `185.199.110.153`
-     - `185.199.111.153`
-   - Or `CNAME` record: `username.github.io`
-3. Enable “Enforce HTTPS” in GitHub Pages settings
+  <!-- ========== HERO ========== -->
+  <section id="home" class="relative min-h-screen flex items-center hero-gradient pt-20">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-1/4 -right-32 w-96 h-96 bg-gold-500/5 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-1/4 -left-32 w-96 h-96 bg-gold-600/5 rounded-full blur-3xl"></div>
+    </div>
 
-## How to Customize
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Text Content -->
+        <div class="order-2 lg:order-1 animate-fade-in">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-400 text-sm font-medium mb-6">
+            <span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span>
+            <span data-i18n="hero.badge">World Champion • First Iranian Medalist</span>
+          </div>
 
-### Replace Photos
-In `index.html` look for the image placeholders (Hero section and Gallery).  
-Replace the inner content of those `<div>`s with real `<img>` tags:
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6">
+            <span class="block text-white" data-i18n="hero.name">Hassan Golestaneh</span>
+            <span class="block gradient-text mt-2" data-i18n="hero.title">Mr. Fitness of Iran</span>
+          </h1>
 
-```html
-<img src="assets/your-photo.jpg" alt="Hassan Golestaneh" class="w-full h-full object-cover" />
-```
+          <p class="text-lg text-gray-400 max-w-xl mb-8 leading-relaxed" data-i18n="hero.subtitle">
+            World Champion Bodybuilder & Fitness Coach. Founder of competitive fitness in Iran. First Iranian athlete to win world medals in fitness and the first professional international referee from Iran.
+          </p>
 
-Create an `assets/` folder and put your high-quality competition photos there.
+          <div class="flex flex-wrap gap-4">
+            <a href="#achievements" class="inline-flex items-center gap-2 px-6 py-3.5 bg-gradient-to-r from-gold-500 to-gold-600 text-dark-900 font-semibold rounded-full hover:shadow-lg hover:shadow-gold-500/25 transition transform hover:-translate-y-0.5">
+              <span data-i18n="hero.cta1">View Achievements</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+            <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3.5 border border-white/20 text-white font-medium rounded-full hover:bg-white/5 hover:border-gold-500/40 transition">
+              <span data-i18n="hero.cta2">Get in Touch</span>
+            </a>
+          </div>
 
-### Update Contact / Social Links
-Search for Instagram and X links near the bottom of `index.html` and update them if needed.
+          <!-- Stats -->
+          <div class="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/10">
+            <div>
+              <div class="text-2xl md:text-3xl font-bold gradient-text">2016</div>
+              <div class="text-xs text-gray-500 mt-1" data-i18n="hero.stat1">First World Medal</div>
+            </div>
+            <div>
+              <div class="text-2xl md:text-3xl font-bold gradient-text">2017</div>
+              <div class="text-xs text-gray-500 mt-1" data-i18n="hero.stat2">World Gold</div>
+            </div>
+            <div>
+              <div class="text-2xl md:text-3xl font-bold gradient-text">#1</div>
+              <div class="text-xs text-gray-500 mt-1" data-i18n="hero.stat3">Iran Fitness Founder</div>
+            </div>
+          </div>
+        </div>
 
-### Change Colors
-Edit the Tailwind config at the top of `index.html` (gold and dark colors).
+        <!-- Image / Visual -->
+        <div class="order-1 lg:order-2 flex justify-center lg:justify-end">
+          <div class="relative">
+            <div class="absolute -inset-4 bg-gradient-to-br from-gold-500/20 to-transparent rounded-3xl blur-2xl"></div>
+            <div class="relative w-72 h-80 sm:w-80 sm:h-96 md:w-96 md:h-[28rem] rounded-3xl overflow-hidden gold-border bg-dark-700 flex items-center justify-center">
+              <!-- Placeholder for professional photo. Replace with real image -->
+              <div class="text-center p-8">
+                <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center text-4xl font-bold text-dark-900 mb-4">
+                  HG
+                </div>
+                <p class="text-gray-400 text-sm" data-i18n="hero.photoNote">Professional Photo<br/>Place your best competition photo here</p>
+              </div>
+            </div>
+            <!-- Floating badge -->
+            <div class="absolute -bottom-4 -left-4 md:-left-8 bg-dark-800 border border-gold-500/30 rounded-2xl px-5 py-3 shadow-xl">
+              <div class="text-gold-400 font-bold text-sm">🏆 WFF World</div>
+              <div class="text-white text-xs" data-i18n="hero.medal">Silver 2016 • Gold 2017</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-## File Structure
+  <!-- ========== ABOUT ========== -->
+  <section id="about" class="py-20 md:py-28 bg-dark-800/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          <span class="gradient-text" data-i18n="about.title">About Me</span>
+        </h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-gold-500 to-transparent mx-auto"></div>
+      </div>
 
-```
-hassan-golestaneh-website/
-├── index.html          ← Main website (everything is inside)
-├── README.md
-└── assets/             ← Put your photos here
-```
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h3 class="text-2xl font-semibold text-white mb-6" data-i18n="about.heading">The Story of a Pioneer</h3>
+          <div class="space-y-4 text-gray-400 leading-relaxed">
+            <p data-i18n="about.p1">
+              Born on March 21, 1983 in Tehran, Iran, Hassan Golestaneh is recognized as the founder of competitive fitness in Iran and the first Iranian athlete to win world championship medals in fitness.
+            </p>
+            <p data-i18n="about.p2">
+              He began his athletic journey with football under legendary coaches Mohammad Panjali and Nasser Hejazi. After an ankle injury forced him to retire from football at age 19, he practiced jujitsu for seven years and won multiple medals before fully dedicating himself to bodybuilding and fitness.
+            </p>
+            <p data-i18n="about.p3">
+              From 2009 to 2015 he coached the Iranian national team in international fitness competitions, earning the title of World’s Best Fitness Coach in 2015. In 2016 he stepped onto the stage himself and made history.
+            </p>
+          </div>
+        </div>
 
-## Credits
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-dark-700 rounded-2xl p-6 gold-border card-hover">
+            <div class="text-3xl mb-2">🏅</div>
+            <div class="font-semibold text-white" data-i18n="about.card1Title">World Medalist</div>
+            <div class="text-sm text-gray-400 mt-1" data-i18n="about.card1Desc">First Iranian fitness world medalist</div>
+          </div>
+          <div class="bg-dark-700 rounded-2xl p-6 gold-border card-hover">
+            <div class="text-3xl mb-2">🏋️</div>
+            <div class="font-semibold text-white" data-i18n="about.card2Title">Founder</div>
+            <div class="text-sm text-gray-400 mt-1" data-i18n="about.card2Desc">Founder of fitness sport in Iran</div>
+          </div>
+          <div class="bg-dark-700 rounded-2xl p-6 gold-border card-hover">
+            <div class="text-3xl mb-2">👨‍🏫</div>
+            <div class="font-semibold text-white" data-i18n="about.card3Title">Coach</div>
+            <div class="text-sm text-gray-400 mt-1" data-i18n="about.card3Desc">Best Fitness Coach of the World 2015</div>
+          </div>
+          <div class="bg-dark-700 rounded-2xl p-6 gold-border card-hover">
+            <div class="text-3xl mb-2">⚖️</div>
+            <div class="font-semibold text-white" data-i18n="about.card4Title">Referee</div>
+            <div class="text-sm text-gray-400 mt-1" data-i18n="about.card4Desc">First pro international referee of Iran</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-Designed & developed as a high-end personal brand website.  
-Content based on publicly available information about Hassan Golestaneh’s athletic career.
+  <!-- ========== ACHIEVEMENTS ========== -->
+  <section id="achievements" class="py-20 md:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          <span class="gradient-text" data-i18n="achievements.title">Major Achievements</span>
+        </h2>
+        <p class="text-gray-400 max-w-2xl mx-auto" data-i18n="achievements.subtitle">
+          Historic milestones that changed the landscape of Iranian fitness forever.
+        </p>
+      </div>
 
----
+      <div class="space-y-6 max-w-4xl mx-auto">
+        <!-- Achievement 1 -->
+        <div class="flex gap-6 bg-dark-800 rounded-2xl p-6 md:p-8 gold-border card-hover">
+          <div class="flex-shrink-0 w-16 h-16 rounded-xl bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center text-2xl font-bold text-dark-900">
+            16
+          </div>
+          <div>
+            <div class="text-gold-400 text-sm font-medium mb-1">2016 • Dublin, Ireland</div>
+            <h3 class="text-xl font-semibold text-white mb-2" data-i18n="achievements.a1Title">WFF World Championships – Silver Medal</h3>
+            <p class="text-gray-400 text-sm leading-relaxed" data-i18n="achievements.a1Desc">
+              Became the first Iranian athlete to win a world medal in fitness. Secured the silver medal (runner-up) in the Men’s Fitness Model division, making history for Iranian sports.
+            </p>
+          </div>
+        </div>
 
-© 2026 Hassan Golestaneh. All rights reserved.
+        <!-- Achievement 2 -->
+        <div class="flex gap-6 bg-dark-800 rounded-2xl p-6 md:p-8 gold-border card-hover">
+          <div class="flex-shrink-0 w-16 h-16 rounded-xl bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center text-2xl font-bold text-dark-900">
+            17
+          </div>
+          <div>
+            <div class="text-gold-400 text-sm font-medium mb-1">2017 • United States</div>
+            <h3 class="text-xl font-semibold text-white mb-2" data-i18n="achievements.a2Title">World Fitness Championships – Gold Medal</h3>
+            <p class="text-gray-400 text-sm leading-relaxed" data-i18n="achievements.a2Desc">
+              Won the gold medal at the World Fitness Championships in the USA. Also ranked among the Top 10 models at the Arnold Classic — the first Iranian athlete to compete in the United States during the travel ban period.
+            </p>
+          </div>
+        </div>
+
+        <!-- Achievement 3 -->
+        <div class="flex gap-6 bg-dark-800 rounded-2xl p-6 md:p-8 gold-border card-hover">
+          <div class="flex-shrink-0 w-16 h-16 rounded-xl bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center text-2xl font-bold text-dark-900">
+            15
+          </div>
+          <div>
+            <div class="text-gold-400 text-sm font-medium mb-1">2015</div>
+            <h3 class="text-xl font-semibold text-white mb-2" data-i18n="achievements.a3Title">World’s Best Fitness Coach</h3>
+            <p class="text-gray-400 text-sm leading-relaxed" data-i18n="achievements.a3Desc">
+              Selected as the Best Fitness Coach in the World after successfully leading and sending Iranian teams to international competitions between 2009 and 2015.
+            </p>
+          </div>
+        </div>
+
+        <!-- Achievement 4 -->
+        <div class="flex gap-6 bg-dark-800 rounded-2xl p-6 md:p-8 gold-border card-hover">
+          <div class="flex-shrink-0 w-16 h-16 rounded-xl bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center text-xl font-bold text-dark-900">
+            PRO
+          </div>
+          <div>
+            <div class="text-gold-400 text-sm font-medium mb-1">Professional Cards</div>
+            <h3 class="text-xl font-semibold text-white mb-2" data-i18n="achievements.a4Title">First Professional Cards from USA</h3>
+            <p class="text-gray-400 text-sm leading-relaxed" data-i18n="achievements.a4Desc">
+              First Iranian to receive a professional fitness card from the United States and a professional physique card from California. Also the first professional international bodybuilding & fitness referee from Iran.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CAREER & ROLES ========== -->
+  <section id="career" class="py-20 md:py-28 bg-dark-800/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          <span class="gradient-text" data-i18n="career.title">Career & Leadership</span>
+        </h2>
+        <p class="text-gray-400 max-w-2xl mx-auto" data-i18n="career.subtitle">
+          Building the foundation of fitness in Iran and representing the country on the world stage.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-dark-700 rounded-2xl p-6 gold-border card-hover">
+          <div class="text-gold-400 text-3xl mb-4">🇮🇷</div>
+          <h3 class="text-lg font-semibold text-white mb-2" data-i18n="career.r1Title">Official Representative</h3>
+          <p class="text-sm text-gray-400" data-i18n="career.r1Desc">Official & exclusive representative of the International Fitness Federation in Iran and Armenia.</p>
+        </div>
+        <div class="bg-dark-700 rounded-2xl p-6 gold-border card-hover">
+          <div class="text-gold-400 text-3xl mb-4">👂</div>
+          <h3 class="text-lg font-semibold text-white mb-2" data-i18n="career.r2Title">Deaf Federation</h3>
+          <p class="text-sm text-gray-400" data-i18n="career.r2Desc">President of the Fitness Association of the Deaf Federation of Iran.</p>
+        </div>
+        <div class="bg-dark-700 rounded-2xl p-6 gold-border card-hover">
+          <div class="text-gold-400 text-3xl mb-4">📍</div>
+          <h3 class="text-lg font-semibold text-white mb-2" data-i18n="career.r3Title">Shemiranat Committee</h3>
+          <p class="text-sm text-gray-400" data-i18n="career.r3Desc">Chairman of Shemiranat and Lavasanat Fitness Committee.</p>
+        </div>
+        <div class="bg-dark-700 rounded-2xl p-6 gold-border card-hover">
+          <div class="text-gold-400 text-3xl mb-4">🏌️</div>
+          <h3 class="text-lg font-semibold text-white mb-2" data-i18n="career.r4Title">Woodball Association</h3>
+          <p class="text-sm text-gray-400" data-i18n="career.r4Desc">Member of the Board of Directors of Iran Woodball Association (appointed 2024).</p>
+        </div>
+        <div class="bg-dark-700 rounded-2xl p-6 gold-border card-hover">
+          <div class="text-gold-400 text-3xl mb-4">🌍</div>
+          <h3 class="text-lg font-semibold text-white mb-2" data-i18n="career.r5Title">European Fitness</h3>
+          <p class="text-sm text-gray-400" data-i18n="career.r5Desc">Official member of the European Fitness Association.</p>
+        </div>
+        <div class="bg-dark-700 rounded-2xl p-6 gold-border card-hover">
+          <div class="text-gold-400 text-3xl mb-4">💼</div>
+          <h3 class="text-lg font-semibold text-white mb-2" data-i18n="career.r6Title">Entrepreneurs Association</h3>
+          <p class="text-sm text-gray-400" data-i18n="career.r6Desc">Secretary of the Sports Working Group of the Iranian Entrepreneurs Association.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== GALLERY ========== -->
+  <section id="gallery" class="py-20 md:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          <span class="gradient-text" data-i18n="gallery.title">Gallery</span>
+        </h2>
+        <p class="text-gray-400" data-i18n="gallery.subtitle">Moments of glory and dedication</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <!-- Placeholders - replace with real competition photos -->
+        <div class="aspect-[3/4] rounded-2xl bg-dark-700 gold-border overflow-hidden flex items-center justify-center">
+          <div class="text-center text-gray-500 text-sm p-4">
+            <div class="text-4xl mb-2">📸</div>
+            <span data-i18n="gallery.ph">Competition Photo</span>
+          </div>
+        </div>
+        <div class="aspect-[3/4] rounded-2xl bg-dark-700 gold-border overflow-hidden flex items-center justify-center">
+          <div class="text-center text-gray-500 text-sm p-4">
+            <div class="text-4xl mb-2">🏆</div>
+            <span data-i18n="gallery.ph">Medal Moment</span>
+          </div>
+        </div>
+        <div class="aspect-[3/4] rounded-2xl bg-dark-700 gold-border overflow-hidden flex items-center justify-center">
+          <div class="text-center text-gray-500 text-sm p-4">
+            <div class="text-4xl mb-2">💪</div>
+            <span data-i18n="gallery.ph">Stage Pose</span>
+          </div>
+        </div>
+        <div class="aspect-[3/4] rounded-2xl bg-dark-700 gold-border overflow-hidden flex items-center justify-center">
+          <div class="text-center text-gray-500 text-sm p-4">
+            <div class="text-4xl mb-2">🇺🇸</div>
+            <span data-i18n="gallery.ph">Arnold Classic</span>
+          </div>
+        </div>
+        <div class="aspect-[3/4] rounded-2xl bg-dark-700 gold-border overflow-hidden flex items-center justify-center">
+          <div class="text-center text-gray-500 text-sm p-4">
+            <div class="text-4xl mb-2">🇮🇪</div>
+            <span data-i18n="gallery.ph">Ireland 2016</span>
+          </div>
+        </div>
+        <div class="aspect-[3/4] rounded-2xl bg-dark-700 gold-border overflow-hidden flex items-center justify-center">
+          <div class="text-center text-gray-500 text-sm p-4">
+            <div class="text-4xl mb-2">🎖️</div>
+            <span data-i18n="gallery.ph">Pro Card</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-center text-gray-500 text-sm mt-8" data-i18n="gallery.note">
+        Replace these placeholders with your official competition and training photos for a professional look.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section id="contact" class="py-20 md:py-28 bg-dark-800/50">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        <span class="gradient-text" data-i18n="contact.title">Get in Touch</span>
+      </h2>
+      <p class="text-gray-400 mb-10" data-i18n="contact.subtitle">
+        For coaching, collaborations, media inquiries or speaking opportunities.
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-4 mb-12">
+        <a href="https://www.instagram.com/mrsportmodel/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-3 bg-dark-700 border border-white/10 rounded-full hover:border-gold-500/50 hover:text-gold-400 transition">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          Instagram
+        </a>
+        <a href="https://x.com/HGolestaneh" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-3 bg-dark-700 border border-white/10 rounded-full hover:border-gold-500/50 hover:text-gold-400 transition">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          X / Twitter
+        </a>
+      </div>
+
+      <p class="text-sm text-gray-500" data-i18n="contact.note">
+        Official Instagram: @mrsportmodel
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="border-t border-white/5 py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center text-dark-900 font-bold text-sm">HG</div>
+          <span class="text-sm text-gray-400">© 2026 Hassan Golestaneh. <span data-i18n="footer.rights">All rights reserved.</span></span>
+        </div>
+        <div class="text-xs text-gray-600">
+          First Iranian World Fitness Medalist
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== I18N SCRIPT ========== -->
+  <script>
+    const translations = {
+      en: {
+        "nav.name": "Hassan Golestaneh",
+        "nav.about": "About",
+        "nav.achievements": "Achievements",
+        "nav.career": "Career",
+        "nav.gallery": "Gallery",
+        "nav.contact": "Contact",
+        "hero.badge": "World Champion • First Iranian Medalist",
+        "hero.name": "Hassan Golestaneh",
+        "hero.title": "Mr. Fitness of Iran",
+        "hero.subtitle": "World Champion Bodybuilder & Fitness Coach. Founder of competitive fitness in Iran. First Iranian athlete to win world medals in fitness and the first professional international referee from Iran.",
+        "hero.cta1": "View Achievements",
+        "hero.cta2": "Get in Touch",
+        "hero.stat1": "First World Medal",
+        "hero.stat2": "World Gold",
+        "hero.stat3": "Iran Fitness Founder",
+        "hero.photoNote": "Professional Photo\nPlace your best competition photo here",
+        "hero.medal": "Silver 2016 • Gold 2017",
+        "about.title": "About Me",
+        "about.heading": "The Story of a Pioneer",
+        "about.p1": "Born on March 21, 1983 in Tehran, Iran, Hassan Golestaneh is recognized as the founder of competitive fitness in Iran and the first Iranian athlete to win world championship medals in fitness.",
+        "about.p2": "He began his athletic journey with football under legendary coaches Mohammad Panjali and Nasser Hejazi. After an ankle injury forced him to retire from football at age 19, he practiced jujitsu for seven years and won multiple medals before fully dedicating himself to bodybuilding and fitness.",
+        "about.p3": "From 2009 to 2015 he coached the Iranian national team in international fitness competitions, earning the title of World’s Best Fitness Coach in 2015. In 2016 he stepped onto the stage himself and made history.",
+        "about.card1Title": "World Medalist",
+        "about.card1Desc": "First Iranian fitness world medalist",
+        "about.card2Title": "Founder",
+        "about.card2Desc": "Founder of fitness sport in Iran",
+        "about.card3Title": "Coach",
+        "about.card3Desc": "Best Fitness Coach of the World 2015",
+        "about.card4Title": "Referee",
+        "about.card4Desc": "First pro international referee of Iran",
+        "achievements.title": "Major Achievements",
+        "achievements.subtitle": "Historic milestones that changed the landscape of Iranian fitness forever.",
+        "achievements.a1Title": "WFF World Championships – Silver Medal",
+        "achievements.a1Desc": "Became the first Iranian athlete to win a world medal in fitness. Secured the silver medal (runner-up) in the Men’s Fitness Model division, making history for Iranian sports.",
+        "achievements.a2Title": "World Fitness Championships – Gold Medal",
+        "achievements.a2Desc": "Won the gold medal at the World Fitness Championships in the USA. Also ranked among the Top 10 models at the Arnold Classic — the first Iranian athlete to compete in the United States during the travel ban period.",
+        "achievements.a3Title": "World’s Best Fitness Coach",
+        "achievements.a3Desc": "Selected as the Best Fitness Coach in the World after successfully leading and sending Iranian teams to international competitions between 2009 and 2015.",
+        "achievements.a4Title": "First Professional Cards from USA",
+        "achievements.a4Desc": "First Iranian to receive a professional fitness card from the United States and a professional physique card from California. Also the first professional international bodybuilding & fitness referee from Iran.",
+        "career.title": "Career & Leadership",
+        "career.subtitle": "Building the foundation of fitness in Iran and representing the country on the world stage.",
+        "career.r1Title": "Official Representative",
+        "career.r1Desc": "Official & exclusive representative of the International Fitness Federation in Iran and Armenia.",
+        "career.r2Title": "Deaf Federation",
+        "career.r2Desc": "President of the Fitness Association of the Deaf Federation of Iran.",
+        "career.r3Title": "Shemiranat Committee",
+        "career.r3Desc": "Chairman of Shemiranat and Lavasanat Fitness Committee.",
+        "career.r4Title": "Woodball Association",
+        "career.r4Desc": "Member of the Board of Directors of Iran Woodball Association (appointed 2024).",
+        "career.r5Title": "European Fitness",
+        "career.r5Desc": "Official member of the European Fitness Association.",
+        "career.r6Title": "Entrepreneurs Association",
+        "career.r6Desc": "Secretary of the Sports Working Group of the Iranian Entrepreneurs Association.",
+        "gallery.title": "Gallery",
+        "gallery.subtitle": "Moments of glory and dedication",
+        "gallery.ph": "Photo Placeholder",
+        "gallery.note": "Replace these placeholders with your official competition and training photos for a professional look.",
+        "contact.title": "Get in Touch",
+        "contact.subtitle": "For coaching, collaborations, media inquiries or speaking opportunities.",
+        "contact.note": "Official Instagram: @mrsportmodel",
+        "footer.rights": "All rights reserved."
+      },
+      fa: {
+        "nav.name": "حسن گلستانه",
+        "nav.about": "درباره من",
+        "nav.achievements": "افتخارات",
+        "nav.career": "سوابق",
+        "nav.gallery": "گالری",
+        "nav.contact": "تماس",
+        "hero.badge": "قهرمان جهان • اولین مدال‌آور ایرانی",
+        "hero.name": "حسن گلستانه",
+        "hero.title": "آقای فیتنس ایران",
+        "hero.subtitle": "قهرمان جهان بدنسازی و مربی فیتنس. بنیان‌گذار فیتنس رقابتی در ایران. اولین ورزشکار ایرانی که مدال جهانی فیتنس کسب کرد و اولین داور حرفه‌ای بین‌المللی ایران.",
+        "hero.cta1": "مشاهده افتخارات",
+        "hero.cta2": "تماس با من",
+        "hero.stat1": "اولین مدال جهانی",
+        "hero.stat2": "طلای جهان",
+        "hero.stat3": "بنیان‌گذار فیتنس ایران",
+        "hero.photoNote": "عکس حرفه‌ای\nبهترین عکس مسابقه خود را اینجا قرار دهید",
+        "hero.medal": "نقره ۲۰۱۶ • طلا ۲۰۱۷",
+        "about.title": "درباره من",
+        "about.heading": "داستان یک پیشگام",
+        "about.p1": "حسن گلستانه متولد ۲۱ مارس ۱۹۸۳ در تهران، به‌عنوان بنیان‌گذار فیتنس رقابتی در ایران و اولین ورزشکار ایرانی که مدال قهرمانی جهان در رشته فیتنس کسب کرده، شناخته می‌شود.",
+        "about.p2": "او فعالیت ورزشی خود را با فوتبال زیر نظر مربیان بزرگی چون محمد پنجعلی و ناصر حجازی آغاز کرد. پس از آسیب مچ پا در ۱۹ سالگی و کناره‌گیری از فوتبال، هفت سال جوجیتسو کار کرد و مدال‌های متعددی کسب نمود و سپس به‌طور کامل به بدنسازی و فیتنس روی آورد.",
+        "about.p3": "از سال ۲۰۰۹ تا ۲۰۱۵ مربی تیم ملی ایران در مسابقات بین‌المللی فیتنس بود و عنوان بهترین مربی فیتنس جهان در سال ۲۰۱۵ را به دست آورد. در سال ۲۰۱۶ خود روی صحنه رفت و تاریخ‌سازی کرد.",
+        "about.card1Title": "مدال‌آور جهان",
+        "about.card1Desc": "اولین مدال‌آور جهانی فیتنس ایران",
+        "about.card2Title": "بنیان‌گذار",
+        "about.card2Desc": "بنیان‌گذار رشته فیتنس در ایران",
+        "about.card3Title": "مربی",
+        "about.card3Desc": "بهترین مربی فیتنس جهان ۲۰۱۵",
+        "about.card4Title": "داور",
+        "about.card4Desc": "اولین داور حرفه‌ای بین‌المللی ایران",
+        "achievements.title": "افتخارات بزرگ",
+        "achievements.subtitle": "نقاط عطف تاریخی که چهره فیتنس ایران را برای همیشه تغییر داد.",
+        "achievements.a1Title": "مسابقات جهانی WFF – مدال نقره",
+        "achievements.a1Desc": "اولین ورزشکار ایرانی که مدال جهانی فیتنس کسب کرد. در بخش مدل فیتنس آقایان مدال نقره (نایب‌قهرمانی) را به دست آورد و تاریخ‌سازی کرد.",
+        "achievements.a2Title": "مسابقات جهانی فیتنس – مدال طلا",
+        "achievements.a2Desc": "مدال طلای مسابقات جهانی فیتنس آمریکا را کسب کرد. همچنین در میان ۱۰ مدل برتر آرنولد کلاسیک قرار گرفت — اولین ورزشکار ایرانی که در دوران محدودیت سفر به آمریکا رقابت کرد.",
+        "achievements.a3Title": "بهترین مربی فیتنس جهان",
+        "achievements.a3Desc": "پس از هدایت موفق تیم‌های ایرانی در مسابقات بین‌المللی بین سال‌های ۲۰۰۹ تا ۲۰۱۵، به‌عنوان بهترین مربی فیتنس جهان انتخاب شد.",
+        "achievements.a4Title": "اولین کارت‌های حرفه‌ای آمریکا",
+        "achievements.a4Desc": "اولین ایرانی که کارت حرفه‌ای فیتنس از آمریکا و کارت فیزیک حرفه‌ای از کالیفرنیا دریافت کرد. همچنین اولین داور حرفه‌ای بین‌المللی بدنسازی و فیتنس ایران است.",
+        "career.title": "سوابق و رهبری",
+        "career.subtitle": "ساخت بنیان فیتنس در ایران و نمایندگی کشور در صحنه جهانی.",
+        "career.r1Title": "نماینده رسمی",
+        "career.r1Desc": "نماینده رسمی و انحصاری فدراسیون بین‌المللی فیتنس در ایران و ارمنستان.",
+        "career.r2Title": "فدراسیون ناشنوایان",
+        "career.r2Desc": "رئیس انجمن فیتنس فدراسیون ناشنوایان ایران.",
+        "career.r3Title": "کمیته شمیرانات",
+        "career.r3Desc": "رئیس کمیته فیتنس شمیرانات و لواسانات.",
+        "career.r4Title": "انجمن وودبال",
+        "career.r4Desc": "عضو هیئت رئیسه انجمن وودبال ایران (انتصاب ۱۴۰۳).",
+        "career.r5Title": "فیتنس اروپا",
+        "career.r5Desc": "عضو رسمی انجمن فیتنس اروپا.",
+        "career.r6Title": "انجمن کارآفرینان",
+        "career.r6Desc": "دبیر کارگروه ورزش انجمن کارآفرینان ایران.",
+        "gallery.title": "گالری",
+        "gallery.subtitle": "لحظات افتخار و تعهد",
+        "gallery.ph": "جای عکس",
+        "gallery.note": "این جای‌نگهدارها را با عکس‌های رسمی مسابقات و تمرینات خود جایگزین کنید تا ظاهر حرفه‌ای داشته باشد.",
+        "contact.title": "تماس با من",
+        "contact.subtitle": "برای مربی‌گری، همکاری، رسانه‌ها یا سخنرانی.",
+        "contact.note": "اینستاگرام رسمی: @mrsportmodel",
+        "footer.rights": "تمامی حقوق محفوظ است."
+      },
+      fr: {
+        "nav.name": "Hassan Golestaneh",
+        "nav.about": "À propos",
+        "nav.achievements": "Palmarès",
+        "nav.career": "Carrière",
+        "nav.gallery": "Galerie",
+        "nav.contact": "Contact",
+        "hero.badge": "Champion du Monde • Premier Médaillé Iranien",
+        "hero.name": "Hassan Golestaneh",
+        "hero.title": "Mr. Fitness de l'Iran",
+        "hero.subtitle": "Champion du monde de culturisme et entraîneur de fitness. Fondateur du fitness compétitif en Iran. Premier athlète iranien à remporter des médailles mondiales en fitness et premier arbitre professionnel international d'Iran.",
+        "hero.cta1": "Voir le Palmarès",
+        "hero.cta2": "Me Contacter",
+        "hero.stat1": "Première Médaille Mondiale",
+        "hero.stat2": "Or Mondial",
+        "hero.stat3": "Fondateur Fitness Iran",
+        "hero.photoNote": "Photo Professionnelle\nPlacez ici votre meilleure photo de compétition",
+        "hero.medal": "Argent 2016 • Or 2017",
+        "about.title": "À propos de moi",
+        "about.heading": "L'histoire d'un pionnier",
+        "about.p1": "Né le 21 mars 1983 à Téhéran, en Iran, Hassan Golestaneh est reconnu comme le fondateur du fitness compétitif en Iran et le premier athlète iranien à remporter des médailles de championnat du monde en fitness.",
+        "about.p2": "Il a commencé son parcours sportif par le football sous la direction des entraîneurs légendaires Mohammad Panjali et Nasser Hejazi. Après une blessure à la cheville qui l'a forcé à abandonner le football à 19 ans, il a pratiqué le ju-jitsu pendant sept ans et a remporté plusieurs médailles avant de se consacrer entièrement à la culturisme et au fitness.",
+        "about.p3": "De 2009 à 2015, il a entraîné l'équipe nationale iranienne dans des compétitions internationales de fitness, obtenant le titre de Meilleur Entraîneur de Fitness du Monde en 2015. En 2016, il est monté lui-même sur scène et a écrit l'histoire.",
+        "about.card1Title": "Médaillé Mondial",
+        "about.card1Desc": "Premier médaillé mondial iranien de fitness",
+        "about.card2Title": "Fondateur",
+        "about.card2Desc": "Fondateur du sport fitness en Iran",
+        "about.card3Title": "Entraîneur",
+        "about.card3Desc": "Meilleur Entraîneur Fitness du Monde 2015",
+        "about.card4Title": "Arbitre",
+        "about.card4Desc": "Premier arbitre pro international d'Iran",
+        "achievements.title": "Principaux Palmarès",
+        "achievements.subtitle": "Des étapes historiques qui ont changé à jamais le paysage du fitness iranien.",
+        "achievements.a1Title": "Championnats du Monde WFF – Médaille d'Argent",
+        "achievements.a1Desc": "Est devenu le premier athlète iranien à remporter une médaille mondiale en fitness. A obtenu la médaille d'argent (vice-champion) dans la division Men's Fitness Model, faisant l'histoire du sport iranien.",
+        "achievements.a2Title": "Championnats du Monde de Fitness – Médaille d'Or",
+        "achievements.a2Desc": "A remporté la médaille d'or aux Championnats du Monde de Fitness aux États-Unis. Classé également parmi les Top 10 modèles de l'Arnold Classic — premier athlète iranien à concourir aux États-Unis pendant la période d'interdiction de voyage.",
+        "achievements.a3Title": "Meilleur Entraîneur de Fitness du Monde",
+        "achievements.a3Desc": "Sélectionné comme Meilleur Entraîneur de Fitness du Monde après avoir dirigé avec succès les équipes iraniennes dans des compétitions internationales entre 2009 et 2015.",
+        "achievements.a4Title": "Premières Cartes Professionnelles des USA",
+        "achievements.a4Desc": "Premier Iranien à recevoir une carte professionnelle de fitness des États-Unis et une carte physique professionnelle de Californie. Également le premier arbitre professionnel international de culturisme et de fitness d'Iran.",
+        "career.title": "Carrière & Leadership",
+        "career.subtitle": "Construire les fondations du fitness en Iran et représenter le pays sur la scène mondiale.",
+        "career.r1Title": "Représentant Officiel",
+        "career.r1Desc": "Représentant officiel et exclusif de la Fédération Internationale de Fitness en Iran et en Arménie.",
+        "career.r2Title": "Fédération des Sourds",
+        "career.r2Desc": "Président de l'Association de Fitness de la Fédération des Sourds d'Iran.",
+        "career.r3Title": "Comité de Shemiranat",
+        "career.r3Desc": "Président du Comité de Fitness de Shemiranat et Lavasanat.",
+        "career.r4Title": "Association Woodball",
+        "career.r4Desc": "Membre du Conseil d'Administration de l'Association Iranienne de Woodball (nommé en 2024).",
+        "career.r5Title": "Fitness Européen",
+        "career.r5Desc": "Membre officiel de l'Association Européenne de Fitness.",
+        "career.r6Title": "Association des Entrepreneurs",
+        "career.r6Desc": "Secrétaire du Groupe de Travail Sport de l'Association des Entrepreneurs Iraniens.",
+        "gallery.title": "Galerie",
+        "gallery.subtitle": "Moments de gloire et de dévouement",
+        "gallery.ph": "Photo Placeholder",
+        "gallery.note": "Remplacez ces placeholders par vos photos officielles de compétition et d'entraînement pour un look professionnel.",
+        "contact.title": "Me Contacter",
+        "contact.subtitle": "Pour le coaching, les collaborations, les demandes médias ou les conférences.",
+        "contact.note": "Instagram officiel : @mrsportmodel",
+        "footer.rights": "Tous droits réservés."
+      }
+    };
+
+    let currentLang = 'en';
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      const html = document.documentElement;
+      
+      // Direction
+      if (lang === 'fa') {
+        html.setAttribute('dir', 'rtl');
+        html.setAttribute('lang', 'fa');
+      } else {
+        html.setAttribute('dir', 'ltr');
+        html.setAttribute('lang', lang);
+      }
+
+      // Update all texts
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.innerHTML = translations[lang][key].replace(/\n/g, '<br>');
+        }
+      });
+
+      // Update active button
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+
+      // Save preference
+      localStorage.setItem('preferredLang', lang);
+    }
+
+    // Load saved language or default
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('preferredLang') || 'en';
+      setLanguage(saved);
+    });
+  </script>
+</body>
+</html>
